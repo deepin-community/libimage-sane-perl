@@ -1,0 +1,83 @@
+Revision history for Perl extension Image::Sane.
+
+5     Fri, 15 Nov 2019 00:00 +0000
+        - Fix tests broken by sane-backends 1.0.28. Closes RT 130933
+          (t/81_scanimage-perl.t test fails with sane-backends-1.0.28)
+
+4     Thu, 12 Sep 2019 00:00 +0000
+        - Use Config
+          Thanks to Petr Pisar for the patch.
+
+3     Wed, 11 Sep 2019 00:00 +0000
+        - Respect Perl CCFLAGS.
+          Closes RT 130477 (Makefile.PL ignores Perl CCFLAGS)
+          Thanks to Petr Pisar for the patch.
+
+2     Sat, 17 Aug 2019 19:30 +0200
+        - correctly set version number.
+        - correct MANIFEST.
+
+1     Sat, 17 Aug 2019 19:30 +0200
+        - initialise info flags as some backends, e.g. imagescan
+          (utsushi) don't.
+
+0.14  Sat, 08 Jul 2017 19:30 +0200
+        - correct escaping in 81_scanimage-perl.t to fix RT 122380.
+        - add Try::Tiny to TEST_REQUIRES fix RT 122382.
+
+0.13  Thu, 06 Jul 2017 19:30 +0200
+        - include <sane/saneopts.h> to fix RT 122333.
+        - update scanimage-perl to also reproduce scanimage 1.0.27.
+          Fixes RT 122334
+
+0.12  Sun, 04 Jun 2017 09:30 +0200
+        - skip t/81_scanimage-perl.t if we don't have Perl 5.10
+
+0.11  Wed, 31 May 2017 18:30 +0200
+        - remove postamble from Makefile.PL if OS is not linux to fix RT 121936.
+
+0.10  Mon, 29 May 2017 17:30 +0200
+        - skip scanimage tests if not installed to fix RT 121922.
+
+0.09  Thu, 25 May 2017 17:30 +0200
+        - Use identify -format to fix spurious test failures
+        - + missing PREREQ_PM and CONFIGURE_REQUIRES to fix RT 121871.
+
+0.08  Mon, 22 May 2017 17:30 +0200
+        - Use $EXECUTABLE_NAME to call perl in tests to fix RT 121627.
+
+0.07  Fri, 19 May 2017 17:30 +0200
+        - Replace BUILD_REQUIRES with TEST_REQUIRES, adding Readonly,
+          as used in scanimage-perl, which is used by the test suite.
+
+0.06  Mon, 13 Mar 2017 15:10 +0100
+        - Run sane_exit() before sane_get_devices()
+        - Fix spelling aquisition->acquisition
+        - Rename module Sane -> Image::Sane
+        - Don't export symbols automatically
+        - Remove duplicated code from get_version_scalar()
+        - Replace package STATUS variable with Exceptions
+          to be caught by Try::Tiny
+
+Revision history for Perl extension Sane.
+
+0.05  Mon, 02 Apr 2012 08:38 +0200
+        - Export SANE_NAME_PAGE_WIDTH SANE_NAME_PAGE_HEIGHT
+        - fix 'cast from pointer to integer of different size' warnings
+
+0.04  Tue, 14 Feb 2012 10:49:23 +0100
+        - Check for opt->size=0
+        - Check for zero-length data
+
+0.03  Mon, 11 May 2009 09:56:37 +0200
+        - Add Sane->get_version_scalar
+        - Don't export SANE_CAP_ALWAYS_SETTABLE unless libsane 1.0.19
+        - Add debug message for sane_open
+
+0.02  Wed Nov 26 20:45:00 2008
+	- Skip most tests if we don't have libsane 1.0.19
+        - Fix symbol names in write_pnm_header
+
+0.01  Tue Nov 18 20:31:00 2008
+	- original version; created by h2xs 1.23 with options
+		-A -n Sane

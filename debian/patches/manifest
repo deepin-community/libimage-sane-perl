@@ -1,0 +1,28 @@
+Subject: Disable MANIFEST test, as this is only interesting for the author, and is
+ confused by the debian-perl team git repo.
+Author: Jeffrey Ratcliffe <jjr@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2017-07-15
+
+--- a/t/90_MANIFEST.t
++++ b/t/90_MANIFEST.t
+@@ -2,7 +2,12 @@
+ use warnings;
+ use English;
+ use Image::Sane ':all';
+-use Test::More tests => 2;
++use Test::More;
++
++if ( not $ENV{TEST_AUTHOR} ) {
++    my $msg = 'Author test.  Set $ENV{TEST_AUTHOR} to a true value to run.';
++    plan( skip_all => $msg );
++}
+ 
+ my $git;
+ SKIP: {
+@@ -34,3 +39,5 @@
+ else {
+     fail 'version string not found';
+ }
++
++done_testing;

@@ -1,0 +1,35 @@
+Source: libimage-sane-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Jeffrey Ratcliffe <jjr@debian.org>
+Section: perl
+Testsuite: autopkgtest-pkg-perl
+Priority: optional
+Build-Depends: debhelper-compat (= 12),
+               imagemagick <!nocheck>,
+               libexception-class-perl <!nocheck>,
+               libextutils-depends-perl,
+               libextutils-pkgconfig-perl,
+               libreadonly-perl <!nocheck>,
+               libsane-dev,
+               libtest-requires-perl <!nocheck>,
+               libtry-tiny-perl <!nocheck>,
+               perl-xs-dev,
+               perl:native,
+               sane-utils <!nocheck>
+Standards-Version: 4.4.1
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libimage-sane-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libimage-sane-perl.git
+Homepage: https://metacpan.org/release/Image-Sane
+
+Package: libimage-sane-perl
+Architecture: any
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         ${shlibs:Depends},
+         libexception-class-perl,
+         libreadonly-perl
+Description: Perl extension for the SANE (Scanner Access Now Easy) Project
+ The Image::Sane Perl bindings for the SANE (Scanner Access Now Easy) Project
+ allow you to access SANE-compatible scanners in a Perlish and object-oriented
+ way, freeing you from the casting and memory management in C, yet remaining
+ very close in spirit to original API.
